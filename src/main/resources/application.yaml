@@ -1,0 +1,18 @@
+server:
+  port: 8081
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.xjx.demo.entity
+  configuration:
+    map-underscore-to-camel-case: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: xjx123456
+    url: jdbc:mysql://localhost:3306/sql_monitor?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    type: com.alibaba.druid.pool.DruidDataSource
+logging:
+  level:
+    com.xjx.demo.dao: debug
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjx.demo.dao.GoodsDao">
+    <select id="getById" resultType="com.xjx.demo.entity.Goods">
+        SELECT * FROM tbl_goods WHERE id=#{id}
+    </select>
+
+    <select id="getByRangePrice" resultType="com.xjx.demo.entity.Goods">
+        SELECT * FROM tbl_goods WHERE min_price <![CDATA[<=]]> #{minPrice} AND max_price <![CDATA[>=]]> #{maxPrice}
+    </select>
+
+    <select id="getAll" resultType="com.xjx.demo.entity.Goods">
+        SELECT * FROM tbl_goods
+    </select>
+
+    <insert id="insertOne" parameterType="com.xjx.demo.entity.Goods">
+        INSERT INTO tbl_goods(name,min_price,max_price,stores,rest_number,is_sale,stock_time)
+        VALUES (#{name},#{minPrice},#{maxPrice},#{stores},#{restNumber},#{isSale},#{stockTime})
+    </insert>
+
+    <insert id="batchInsert">
+        INSERT INTO tbl_goods(name,min_price,max_price,stores,rest_number,is_sale,stock_time) VALUES
+        <foreach collection="goodsList" item="good" separator=",">
+            (#{good.name},#{good.minPrice},#{good.maxPrice},#{good.stores},#{good.restNumber},#{good.isSale},#{good.stockTime})
+        </foreach>
+    </insert>
+
+<!--    <delete id="deleteOne">-->
+<!--        DELETE FROM tbl_goods WHERE id=#{id}-->
+<!--    </delete>-->
+
+<!--    <delete id="batchDelete">-->
+<!--        DELETE FROM tbl_goods WHERE id IN-->
+<!--        <foreach collection="idList" item="one" separator="," open="(" close=")">-->
+<!--            #{one}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+
+<!--    <update id="update">-->
+<!--        UPDATE tbl_goods SET-->
+<!--        name=#{name},min_price=#{minPrice},max_price=#{maxPrice},stores=#{stores},rest_number=#{restNumber},-->
+<!--        is_sale=#{isSale},stock_time=#{stockTime}-->
+<!--        WHERE id=#{id}-->
+<!--    </update>-->
+
+<!--    <update id="batchUpdate">-->
+<!--        UPDATE tbl_goods-->
+<!--        <trim prefix="set" suffixOverrides=",">-->
+<!--            <trim prefix="rest_number=case" suffix="end,">-->
+<!--                <foreach collection="goodsList" item="item" index="index">-->
+<!--                    when id=#{item.id} then #{item.restNumber}-->
+<!--                </foreach>-->
+<!--            </trim>-->
+<!--        </trim>-->
+<!--        WHERE id in-->
+<!--        <foreach collection="goodsList" item="item" index="index">-->
+<!--            #{item.id}-->
+<!--        </foreach>-->
+<!--    </update>-->
+</mapper>
