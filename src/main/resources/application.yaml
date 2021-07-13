@@ -15,4 +15,4 @@ spring:
 logging:
   level:
     com.xjx.demo.dao: debug
-monitor: 1
+monitor: 0

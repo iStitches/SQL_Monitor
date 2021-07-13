@@ -52,7 +52,8 @@ class DemoApplicationTests {
 //        System.out.println("one:  "+goods);
 //        List<Goods> goodsList = goodsDao.getAll();
 //        System.out.println("all:  "+goodsList);
-          personDao.insert(new Person("unonoi","7856124"));
+//          personDao.insert(new Person("unonoi","7856124"));
+          goodsDao.getByRangePrice("qwer",46.2);
     }
 
 }

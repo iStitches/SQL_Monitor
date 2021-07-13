@@ -25,7 +25,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> getByRangePrice(float minPrice, double maxPrice) {
-        return goodsDao.getByRangePrice(minPrice,maxPrice);
+        return goodsDao.getByRangePrice(""+minPrice,maxPrice);
     }
 
     @Override

@@ -12,14 +12,14 @@ import java.util.Date;
 public class Goods {
     private int id;
     private String name;
-    private float minPrice;
+    private String minPrice;
     private double maxPrice;
     private long stores;
     private long restNumber;
     private boolean isSale;
     private Date stockTime;
 
-    public Goods(String name, float minPrice, double maxPrice, long stores, long restNumber, boolean isSale, Date stockTime) {
+    public Goods(String name, String minPrice, double maxPrice, long stores, long restNumber, boolean isSale, Date stockTime) {
         this.name = name;
         this.minPrice = minPrice;
         this.maxPrice = maxPrice;
