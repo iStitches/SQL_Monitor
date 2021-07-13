@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjx.demo.dao.SqlAnalysisDao">
     <insert id="insert" parameterType="com.xjx.demo.entity.SysSqlAnalysis">
-        INSERT INTO tbl_sqls(all_parameter,useful_parameter,type,mapper,init_sqls,final_sqls,analysis)
-        VALUES (#{allParameter},#{usefulParameter},#{type},#{mapper},#{initSqls},#{finalSqls},#{analysis})
+        INSERT INTO tbl_sqls(all_parameter,useful_parameter,type,mapper,init_sqls,final_sqls,analysis,query_time)
+        VALUES (#{allParameter},#{usefulParameter},#{type},#{mapper},#{initSqls},#{finalSqls},#{analysis},#{queryTime})
     </insert>
 
     <select id="getAll" resultType="com.xjx.demo.entity.SysSqlAnalysis">

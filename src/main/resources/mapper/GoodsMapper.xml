@@ -27,36 +27,36 @@
         </foreach>
     </insert>
 
-<!--    <delete id="deleteOne">-->
-<!--        DELETE FROM tbl_goods WHERE id=#{id}-->
-<!--    </delete>-->
+    <delete id="deleteOne">
+        DELETE FROM tbl_goods WHERE id=#{id}
+    </delete>
 
-<!--    <delete id="batchDelete">-->
-<!--        DELETE FROM tbl_goods WHERE id IN-->
-<!--        <foreach collection="idList" item="one" separator="," open="(" close=")">-->
-<!--            #{one}-->
-<!--        </foreach>-->
-<!--    </delete>-->
+    <delete id="batchDelete">
+        DELETE FROM tbl_goods WHERE id IN
+        <foreach collection="idList" item="one" separator="," open="(" close=")">
+            #{one}
+        </foreach>
+    </delete>
 
-<!--    <update id="update">-->
-<!--        UPDATE tbl_goods SET-->
-<!--        name=#{name},min_price=#{minPrice},max_price=#{maxPrice},stores=#{stores},rest_number=#{restNumber},-->
-<!--        is_sale=#{isSale},stock_time=#{stockTime}-->
-<!--        WHERE id=#{id}-->
-<!--    </update>-->
+    <update id="update">
+        UPDATE tbl_goods SET
+        name=#{name},min_price=#{minPrice},max_price=#{maxPrice},stores=#{stores},rest_number=#{restNumber},
+        is_sale=#{isSale},stock_time=#{stockTime}
+        WHERE id=#{id}
+    </update>
 
-<!--    <update id="batchUpdate">-->
-<!--        UPDATE tbl_goods-->
-<!--        <trim prefix="set" suffixOverrides=",">-->
-<!--            <trim prefix="rest_number=case" suffix="end,">-->
-<!--                <foreach collection="goodsList" item="item" index="index">-->
-<!--                    when id=#{item.id} then #{item.restNumber}-->
-<!--                </foreach>-->
-<!--            </trim>-->
-<!--        </trim>-->
-<!--        WHERE id in-->
-<!--        <foreach collection="goodsList" item="item" index="index">-->
-<!--            #{item.id}-->
-<!--        </foreach>-->
-<!--    </update>-->
+    <update id="batchUpdate">
+        UPDATE tbl_goods
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="rest_number=case" suffix="end,">
+                <foreach collection="goodsList" item="item" index="index">
+                    when id=#{item.id} then #{item.restNumber}
+                </foreach>
+            </trim>
+        </trim>
+        WHERE id in
+        <foreach collection="goodsList" item="item" index="index">
+            #{item.id}
+        </foreach>
+    </update>
 </mapper>

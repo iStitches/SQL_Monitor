@@ -15,7 +15,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public Goods queryOne(int id) {
-        return goodsDao.getById(id);
+        return goodsDao.getById(id,"123456","nick");
     }
 
     @Override
@@ -24,37 +24,37 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<Goods> getByRangePrice() {
-        return goodsDao.
+    public List<Goods> getByRangePrice(float minPrice, double maxPrice) {
+        return goodsDao.getByRangePrice(minPrice,maxPrice);
     }
 
     @Override
     public void addOneGoods(Goods goods) {
-
+        goodsDao.insertOne(goods);
     }
 
     @Override
     public void addManyGoods(List<Goods> goodsList) {
-
+        goodsDao.batchInsert(goodsList);
     }
 
     @Override
     public void deleteOne(int id) {
-
+        goodsDao.deleteOne(id);
     }
 
     @Override
     public void deleteMany(List<Integer> idList) {
-
+        goodsDao.batchDelete(idList);
     }
 
     @Override
     public void updateOne(Goods goods) {
-
+        goodsDao.update(goods);
     }
 
     @Override
     public void updateMany(List<Goods> goodsList) {
-
+        goodsDao.batchUpdate(goodsList);
     }
 }

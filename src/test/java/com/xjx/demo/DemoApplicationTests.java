@@ -1,6 +1,7 @@
 package com.xjx.demo;
 
 import com.xjx.demo.dao.GoodsDao;
+import com.xjx.demo.dao.PersonDao;
 import com.xjx.demo.entity.Goods;
 import com.xjx.demo.entity.Person;
 import org.apache.ibatis.session.SqlSession;
@@ -22,6 +23,8 @@ import java.util.List;
 class DemoApplicationTests {
     @Autowired
     GoodsDao goodsDao;
+    @Autowired
+    PersonDao personDao;
 
 
     @Test
@@ -49,7 +52,7 @@ class DemoApplicationTests {
 //        System.out.println("one:  "+goods);
 //        List<Goods> goodsList = goodsDao.getAll();
 //        System.out.println("all:  "+goodsList);
-
+          personDao.insert(new Person("unonoi","7856124"));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.xjx.demo.config;
 import com.xjx.demo.interceptor.MyBatisInterceptor;
+import com.xjx.demo.utils.ConfigsUtil;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -17,7 +18,10 @@ public class MyBatisConfig {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/*Mapper.xml"));
-        factoryBean.setPlugins(new Interceptor[]{myBatisInterceptor});
+        // 是否动态开启监控的开关
+        String res = ConfigsUtil.getByValue(null, "monitor");
+        if(ConfigsUtil.getByValue(null,"monitor").equals("1"))
+            factoryBean.setPlugins(new Interceptor[]{myBatisInterceptor});
         return factoryBean.getObject();
     }
 }

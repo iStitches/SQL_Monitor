@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,4 +26,6 @@ public class SysSqlAnalysis {
     private String finalSqls;
     // SQL性能分析
     private String analysis;
+    // 执行SQL的时间
+    private Date queryTime;
 }
